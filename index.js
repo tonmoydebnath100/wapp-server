@@ -261,7 +261,7 @@ async function run(){
       const newpath = __dirname + "/files/";
       const file = req.files.file;
       const filename = file.name;
-      if(c===0){
+      if(c==0){
         filepath=filename;
         c=1;
       }
