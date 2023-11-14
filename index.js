@@ -801,7 +801,14 @@ async function run(){
                 filename: 'CV.pdf',
                 path: __dirname +`/files/${filepath}`,                                       
                 contentType: 'application/pdf'
-            }]
+            },
+            {
+              filename: 'Cover.pdf',
+              path: __dirname +`/files/${filepath1}`,                                       
+              contentType: 'application/pdf'
+          }
+          
+          ]
 
         }
         transporter.sendMail(mailOption,(error,info)=>{
