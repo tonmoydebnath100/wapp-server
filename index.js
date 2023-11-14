@@ -261,14 +261,7 @@ async function run(){
       const newpath = __dirname + "/files/";
       const file = req.files.file;
       const filename = file.name;
-      if(c==0){
-        filepath=filename;
-        c=1;
-      }
-      else{
-        filepath1=filename;
-        c=0;
-      }
+      filepath=filename;
       file.mv(`${newpath}${filename}`, (err) => {
         if (err) {
           
@@ -801,12 +794,7 @@ async function run(){
                 filename: 'CV.pdf',
                 path: __dirname +`/files/${filepath}`,                                       
                 contentType: 'application/pdf'
-            },
-            {
-              filename: 'Cover.pdf',
-              path: __dirname +`/files/${filepath1}`,                                       
-              contentType: 'application/pdf'
-          }
+            }
           
           ]
 
