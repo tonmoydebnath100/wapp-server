@@ -23,7 +23,7 @@ const client = new MongoClient(uri, {
 
 async function run(){
   try{
-    let filepath;
+    let filepath,c=0,filepath1;
     const store=client.db('wapparels').collection('contactus');
     const allproducts=client.db('wapparels').collection('products');
     
@@ -257,12 +257,21 @@ async function run(){
       
     });
     app.post("/upload", (req, res) => {
+      
       const newpath = __dirname + "/files/";
       const file = req.files.file;
       const filename = file.name;
-      filepath=filename;
+      if(c===0){
+        filepath=filename;
+        c=1;
+      }
+      else{
+        filepath1=filename;
+        c=0;
+      }
       file.mv(`${newpath}${filename}`, (err) => {
         if (err) {
+          
           res.status(500);
         }
         res.status(200);
